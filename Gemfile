@@ -52,3 +52,9 @@ end
 
 gem 'fidor_api'
 gem 'faraday-detailed_logger'
+
+gem 'bootstrap-sass'
+
+group :development, :test do
+  gem 'dotenv-rails'
+end

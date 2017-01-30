@@ -1,0 +1,34 @@
+<h1>Incomplete Configuration detected</h1>
+
+<p>
+  Please make sure all options are flagged as status "OK" (<span class="glyphicon glyphicon-ok"></span>).
+  <br />
+  <strong>Note:</strong> It might be required to restart the application in order to have your changes taking effect.
+</p>
+
+<table class="table">
+  <tr>
+    <th>Option</th>
+    <th>Current value</th>
+    <th>Status</th>
+  </tr>
+  <% EnvConfig::REQUIRED_KEYS.each do |key| %>
+    <% danger_class = EnvConfig.present?(key) ? nil : "danger" %>
+
+    <%= content_tag :tr, class: danger_class do %>
+      <td>
+        <pre><%= key %></pre>
+      </td>
+      <td>
+        <pre><%= EnvConfig.get(key) %></pre>
+      </td>
+      <td class="text-center">
+        <% if EnvConfig.present?(key) %>
+          <span class="glyphicon glyphicon-ok text-success"></span>
+        <% else %>
+          <span class="glyphicon glyphicon-remove text-danger"></span>
+        <% end %>
+      </td>
+    <% end %>
+  <% end %>
+</table>
