@@ -13,7 +13,7 @@
   <tr>
     <td><%= l t.booking_date.to_date rescue "-" %></td>
     <td><%= l t.value_date.to_date rescue "-" %></td>
-    <td class="text-right"><%= number_to_currency t.amount, unit: "&euro;".html_safe, format: "%n %u" %></td>
+    <td class="text-right"><%= format_currency t.amount %></td>
     <td><%= t.subject %></td>
   </tr>
   <% end %>
