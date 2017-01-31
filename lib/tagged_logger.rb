@@ -4,23 +4,25 @@ class TaggedLogger
     @logger = logger
   end
 
-  def debug(text, &block)
+  delegate :formatter, to: :@logger
+
+  def debug(text = nil, &block)
     write(:debug, text, &block)
   end
 
-  def info(text, &block)
+  def info(text = nil, &block)
     write(:info, text, &block)
   end
 
-  def warn(text, &block)
+  def warn(text = nil, &block)
     write(:warn, text, &block)
   end
 
-  def error(text, &block)
+  def error(text = nil, &block)
     write(:error, text, &block)
   end
 
-  def fatal(text, &block)
+  def fatal(text = nil, &block)
     write(:fatal, text, &block)
   end
 
@@ -37,6 +39,6 @@ class TaggedLogger
   end
 
   def log(level, text)
-    @logger.tagged(@tag) { @logger.public_send(level, text) }
+    @logger.public_send(level, "[#{@tag}] #{text}")
   end
 end

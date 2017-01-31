@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
 
   before_action :require_complete_setup
 
+  include Authentication
+
   private
 
   def require_complete_setup

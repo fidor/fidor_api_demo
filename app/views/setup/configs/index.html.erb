@@ -1,10 +1,20 @@
-<h1>Incomplete Configuration detected</h1>
+<% if EnvConfig.incomplete? %>
+  <h1>Incomplete Configuration detected</h1>
 
-<p>
-  Please make sure all options are flagged as status "OK" (<span class="glyphicon glyphicon-ok"></span>).
-  <br />
-  <strong>Note:</strong> It might be required to restart the application in order to have your changes taking effect.
-</p>
+  <p>
+    Please make sure all options are flagged as status "OK" (<span class="glyphicon glyphicon-ok text-success"></span>).
+    <br />
+    <strong>Note:</strong> It might be required to restart the application in order to have your changes taking effect.
+  </p>
+<% else %>
+  <h1>Complete Configuration detected</h1>
+
+  <p>
+    Your configuration looks complete.
+    <br />
+    Try to access the application at the <%= link_to "root path", root_path %>
+  </p>
+<% end %>
 
 <table class="table">
   <tr>
