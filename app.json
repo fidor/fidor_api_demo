@@ -1,7 +1,7 @@
 {
   "name": "Fidor API Demo",
   "description": "This application demonstrates the capabilities of Fidor Bank API powered by the `fidor_api` ruby library.",
-  "repository": "https://github.com/klausmeyer/fidor_api_demo",
+  "repository": "https://github.com/fidor/fidor_api_demo",
   "keywords": ["fidor", "api", "demo", "rails"],
   "env": {
     "FIDOR_API_CALLBACK": {

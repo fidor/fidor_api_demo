@@ -1,6 +1,6 @@
 # Fidor API Demo
 
-This [Rails](http://rubyonrails.org) application demonstrates the capabilities of Fidor Bank API powered by the [fidor_api](https://github.com/klausmeyer/fidor_api) ruby library.
+This [Rails](http://rubyonrails.org) application demonstrates the capabilities of Fidor Bank API powered by the [fidor_api](https://github.com/fidor/fidor_api) ruby library.
 
 ## Production Setup & Deployment
 
