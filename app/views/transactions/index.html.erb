@@ -1,0 +1,22 @@
+<h2>Transactions</h2>
+
+<%= render "pagination" %>
+
+<table class="table table-striped">
+  <tr>
+    <th>Booking Date</th>
+    <th>Value Date</th>
+    <th>Amount</th>
+    <th>Subject</th>
+  </tr>
+  <% @transactions.each do |t| %>
+  <tr>
+    <td><%= l t.booking_date.to_date rescue "-" %></td>
+    <td><%= l t.value_date.to_date rescue "-" %></td>
+    <td class="text-right"><%= number_to_currency t.amount, unit: "&euro;".html_safe, format: "%n %u" %></td>
+    <td><%= t.subject %></td>
+  </tr>
+  <% end %>
+</table>
+
+<%= render "pagination" %>

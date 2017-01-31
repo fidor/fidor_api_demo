@@ -56,6 +56,7 @@ gem 'fidor_api'
 gem 'faraday-detailed_logger'
 
 gem 'bootstrap-sass'
+gem 'kaminari'
 
 group :development, :test do
   gem 'dotenv-rails'

@@ -1,0 +1,9 @@
+<p>
+  Logged in as <%= current_customer.first_name %> <%= current_customer.last_name %>,
+  <%= link_to "Logout", logout_path %>
+</p>
+
+<ul>
+  <li><%= link_to "Home", root_path %></li>
+  <li><%= link_to "Transactions", transactions_path %></li>
+</ul>

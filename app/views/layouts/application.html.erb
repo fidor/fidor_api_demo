@@ -10,6 +10,14 @@
 
   <body>
     <div class="container">
+      <h1>Fidor API Demo</h1>
+
+      <% if logged_in? %>
+        <%= render "logged_in" %>
+      <% else %>
+        <%= render "guest" %>
+      <% end %>
+
       <%= yield %>
     </div>
   </body>
