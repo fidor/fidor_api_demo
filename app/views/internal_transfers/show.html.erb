@@ -1,0 +1,21 @@
+<h2>Internal Transfer</h2>
+
+<table class="table">
+  <tr>
+    <th>Receiver</th>
+    <td><%= @transfer.receiver %></td>
+  </tr>
+  <tr>
+    <th>Subject</th>
+    <td><%= @transfer.subject %></td>
+  </tr>
+  <tr>
+    <th>Amount</th>
+    <td><%= format_currency @transfer.amount %></td>
+  </tr>
+  <tr>
+    <th>Created at</th>
+    <td><%= l @transfer.created_at %></td>
+  </tr>
+</table>
+

@@ -57,7 +57,13 @@ gem 'faraday-detailed_logger'
 
 gem 'bootstrap-sass'
 gem 'kaminari'
+gem 'rails-i18n'
+gem 'simple_form'
 
 group :development, :test do
   gem 'dotenv-rails'
+end
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-vanilla-masker'
 end

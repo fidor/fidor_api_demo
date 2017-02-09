@@ -1,0 +1,16 @@
+<h2>New Internal Transfer</h2>
+<p>Send Money to other Fidor Account by Nickname, E-Mail or Fidor ID.</p>
+
+<%= simple_form_for @transfer, url: internal_transfers_path do |f| %>
+
+  <%= f.error_messages %>
+
+  <%= f.input :receiver, input_html: { autofocus: true } %>
+
+  <%= f.input :amount, placeholder: "0.00", input_html: { data: { vm_mask_money: true } } %>
+
+  <%= f.input :subject %>
+
+  <%= f.button :submit, value: "Send Money Now", class: "btn btn-primary" %>
+
+<% end %>

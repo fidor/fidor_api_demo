@@ -14,3 +14,11 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+//= require bootstrap-sprockets
+//= require vanilla-masker
+
+$(document).on("turbolinks:load", function() {
+  // Masking input element to money
+  VMasker($("[data-vm-mask-money]")).maskMoney({ separator: "." });
+});
