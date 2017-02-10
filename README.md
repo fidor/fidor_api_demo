@@ -28,7 +28,27 @@ This will create a new application at Heroku (requiring an account there of cour
 
 ### Using Docker
 
-To be added soon ;)
+This repository contains a [Dockerfile](Dockerfile) and we are planning to provide a automated build on docker-hub soon.
+
+On a machine having docker installed you can:
+
+#### Build the image using the Dockerfile
+
+```shell
+# Change to the directory where the source-code has been checked out to
+$ cd ~/code/fidor_api_demo
+
+# Build the image
+$ docker build -t fidor_api_demo .
+```
+
+#### Create and start a new container based on the build image
+
+**Note**: The following command requires a file called `.env` in your current work-directory.<br>See "Configuration" section for details.
+
+```
+$ docker run -it --rm --env-file .env -p 4000:8080 -d fidor_api_demo
+```
 
 ## Development Setup
 
@@ -41,31 +61,52 @@ See [rvm.io](http://rvm.io) or [github.com/rbenv/rbenv](https://github.com/rbenv
 How to get started:
 
 ```shell
+# Change to the directory where the source-code has been checked out to
+cd ~/code/fidor-api-demo
+
 # Make sure the package manager "bundler" is installed
-user@host:code/fidor-api-demo$ gem install bundler
+$ gem install bundler
 
 # Install all dependencies for this project using bundler
-user@host:code/fidor-api-demo$ bundle install
+$ bundle install
 
 # Start the application server on port 4000
-user@host:code/fidor-api-demo$ bundle exec rails -p 4000
+$ bundle exec rails -p 4000
 ```
 
-You can then access the application on your local machine: [http://127.0.0.1:4000](http://127.0.0.1:3000) and will see the required configuration. To complete your setup you have to add a file called `.env` to the root directory of this application and restart the application server.
+You can then access the application on your local machine: [http://127.0.0.1:4000](http://127.0.0.1:4000) and will see the required configuration. To complete your setup you have to add a file called `.env` to the root directory of this application and restart the application server. See "Configuration" section for details.
+
+## Configuration
+
+The application is reading it's configuration from environment variables in order to be [12factor](https://12factor.net/) compliant.<br>
+Those variables can be passed in different ways: In development mode the application is checking for a `.env` file located inside the main-directory which contains one environment variable per line.
 
 Example format of `.env` file:
 
 ```shell
-export FIDOR_API_CALLBACK=http://localhost:4000/auth/callback
-export FIDOR_API_CLIENT_ID=1234567890
-export FIDOR_API_CLIENT_SECRET=xxxxxxxxxxxxxxxxxxxxxxx
-export FIDOR_API_LOGGING=true
-export FIDOR_API_URL=https://aps.fidor.de
-export FIDOR_OAUTH_URL=https://aps.fidor.de
+FIDOR_API_CALLBACK=http://localhost:4000/auth/callback
+FIDOR_API_CLIENT_ID=1234567890
+FIDOR_API_CLIENT_SECRET=xxxxxxxxxxxxxxxxxxxxxxx
+FIDOR_API_LOGGING=true
+FIDOR_API_URL=https://aps.fidor.de
+FIDOR_OAUTH_URL=https://aps.fidor.de
 ```
 
-After adding the file you'll need to restart the application-server (in case it's already running).
-To do that simply hit `CTRL` + `C` in your terminal window and execute the `bundle exec rails s ...` commadn again.
+The same file can be used when executing a docker-container with the option `--env-file` but it's also possible to pass the variables inline of the `docker run` command:
+
+```shell
+$ docker run -it --rm \
+    -e FIDOR_API_CALLBACK=http://localhost:4000/auth/callback \
+    -e FIDOR_API_CLIENT_ID=1234567890 \
+    -e FIDOR_API_CLIENT_SECRET=xxxxxxxxxxxxxxxxxxxxxxx \
+    -e FIDOR_API_LOGGING=true \
+    -e FIDOR_API_URL=https://aps.fidor.de \
+    -e FIDOR_OAUTH_URL=https://aps.fidor.de \
+    -p 4000:8080 \
+    -d fidor_api_demo
+```
+
+When you use the "Deploy to Heroku" button in this README all variables will already be passed to heroku - you'll just need to fill in the values.
 
 ## Register a new Application in the Fidor App-Manager
 
