@@ -28,11 +28,19 @@ This will create a new application at Heroku (requiring an account there of cour
 
 ### Using Docker
 
-This repository contains a [Dockerfile](Dockerfile) and we are planning to provide a automated build on docker-hub soon.
+The [Dockerfile](Dockerfile) in this repository's master branch is the source for the public [fidor/fidor_api_demo](https://hub.docker.com/r/fidor/fidor_api_demo/) image.
 
 On a machine having docker installed you can:
 
-#### Build the image using the Dockerfile
+#### Create and start a new container
+
+**Note**: The following command requires a file called `.env` in your current work-directory.<br>See "Configuration" section for details.
+
+```
+$ docker run -it --rm --env-file .env -p 4000:8080 -d fidor/fidor_api_demo
+```
+
+#### Build your own image using the Dockerfile
 
 ```shell
 # Change to the directory where the source-code has been checked out to
@@ -40,14 +48,6 @@ $ cd ~/code/fidor_api_demo
 
 # Build the image
 $ docker build -t fidor_api_demo .
-```
-
-#### Create and start a new container based on the build image
-
-**Note**: The following command requires a file called `.env` in your current work-directory.<br>See "Configuration" section for details.
-
-```
-$ docker run -it --rm --env-file .env -p 4000:8080 -d fidor_api_demo
 ```
 
 ## Development Setup
@@ -122,5 +122,4 @@ For the **Callback URLs** it's required to add a list of two values like this:
 ```
 http://localhost:4000/auth/callback,https://<production-domain>/auth/callback
 ```
-
 So you can use the same application for development (localhost) and production (replace `<production-domain>` with the domain name you're planning to use).
