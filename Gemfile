@@ -50,7 +50,7 @@ end
 
 # custom
 
-ruby '2.3.3' # tell heroku, which ruby version we want
+ruby '2.4.0' # tell heroku, which ruby version we want
 
 gem 'fidor_api'
 gem 'faraday-detailed_logger'
