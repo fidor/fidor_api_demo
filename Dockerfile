@@ -1,4 +1,4 @@
-FROM ruby:2.4.0-alpine
+FROM ruby:2.4.1-alpine
 
 MAINTAINER Fidor <connect@fidor.com>
 
