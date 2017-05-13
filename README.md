@@ -71,7 +71,7 @@ $ gem install bundler
 $ bundle install
 
 # Start the application server on port 4000
-$ bundle exec rails -p 4000
+$ bundle exec rails s -p 4000
 ```
 
 You can then access the application on your local machine: [http://127.0.0.1:4000](http://127.0.0.1:4000) and will see the required configuration. To complete your setup you have to add a file called `.env` to the root directory of this application and restart the application server. See "Configuration" section for details.
