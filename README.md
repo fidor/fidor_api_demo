@@ -22,7 +22,7 @@ See "Register a new Application in the Fidor App-Manager" section.
 
 You can deploy this application to Heroku with just a click on the following button:
 
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https%3A%2F%2Fgithub.com%2Ffidor%2Ffidor_api_demo)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https%3A%2F%2Fgithub.com%2Ffidor%2Ffidor_api_demo)
 
 This will create a new application at Heroku (requiring an account there of course) and ask for all the needed configuration. This allows to run this application in production-like environment for free (using the Free-Tier at Heroku: [heroku.com/pricing](https://www.heroku.com/pricing)) without deeper knowledge of how to host ruby/rails applications.
 
