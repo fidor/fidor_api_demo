@@ -1,26 +1,15 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Fidor API Demo</title>
-    <%= csrf_meta_tags %>
+<% content_for :body do %>
+  <%= render "navbar" %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <div class="container">
+    <%= render "navigation" if logged_in? %>
 
-  <body>
-    <div class="container">
-      <h1>Fidor API Demo</h1>
+    <%= render "flash" %>
 
-      <% unless namespace?(:setup) %>
-        <% if logged_in? %>
-          <%= render "logged_in" %>
-        <% else %>
-          <%= render "guest" %>
-        <% end %>
-      <% end %>
+    <%= yield %>
 
-      <%= yield %>
-    </div>
-  </body>
-</html>
+    <%= render "footer" %>
+  </div>
+<% end %>
+
+<%= render template: "layouts/application_base" %>

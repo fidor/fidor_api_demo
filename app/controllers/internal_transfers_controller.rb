@@ -1,4 +1,6 @@
 class InternalTransfersController < ApplicationController
+  before_action :require_valid_session
+
   def new
     @transfer = FidorApi::Transfer::Internal.new
   end

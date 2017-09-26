@@ -1,18 +1,16 @@
 <% if flash.any? %>
   <% flash.each do |type, body| %>
-    <%= content_tag :div, class: "alert alert-#{type} alert-flash" do %>
-      <span class="delete"><!--//--></span>
+    <%= content_tag :div, class: "alert alert-#{type} alert-dismissible alert-flash" do %>
+      <span class="close" data-dismiss="alert">&times;</span>
       <% if body.kind_of?(Array) %>
-        <ul>
+        <ul class="mb-0">
           <% body.each do |message| %>
             <%= content_tag(:li, message) %>
           <% end %>
         </ul>
       <% else %>
-        <%= content_tag(:p, body) %>
+        <%= content_tag(:p, body, class: "mb-0") %>
       <% end %>
     <% end %>
   <% end %>
-<% else %>
-  <br />
 <% end %>

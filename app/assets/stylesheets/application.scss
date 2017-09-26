@@ -14,5 +14,8 @@
  *= require_self
  */
 
-@import "bootstrap-sprockets";
+$theme-color-interval: 5% !default;
+
 @import "bootstrap";
+
+[aria-invalid] { @extend .is-invalid; }

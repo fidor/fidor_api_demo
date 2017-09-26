@@ -1,71 +1,20 @@
-<h2>Home</h2>
-
 <% if logged_in? %>
-  <h3>Customer details</h3>
+  <div class="row justify-content-center">
+    <div class="col-11 col-md-8 col-lg-6 col-xl-5">
+      <%= render "customer" %>
+    </div>
+    <div class="col-11 col-md-8 col-lg-6 col-xl-5">
+      <%= render "account" %>
+    </div>
+  </div>
 
-  <table class="table">
-    <colgroup>
-      <col width="30%">
-      <col>
-    </colgroup>
-    <tr>
-      <th>Fidor ID</th>
-      <td><%= current_customer.id %></td>
-    </tr>
-    <tr>
-      <th>Firstname</th>
-      <td><%= current_customer.first_name %></td>
-    </tr>
-    <tr>
-      <th>Lastname</th>
-      <td><%= current_customer.last_name %></td>
-    </tr>
-    <tr>
-      <th>Street / Street-No.</th>
-      <td><%= current_customer.adr_street %> <%= current_customer.adr_street_number %></td>
-    </tr>
-    <tr>
-      <th>ZIP-Code / City</th>
-      <td><%= current_customer.adr_post_code %> <%= current_customer.adr_city %></td>
-    </tr>
-    <tr>
-      <th>Country</th>
-      <td><%= current_customer.adr_country %></td>
-    </tr>
-  </table>
-
-  <h3>Account details</h3>
-
-  <table class="table">
-    <colgroup>
-      <col width="30%">
-      <col>
-    </colgroup>
-    <tr>
-      <th>Account number</th>
-      <td><%= current_account.account_number %></td>
-    </tr>
-    <tr>
-      <th>IBAN</th>
-      <td><%= current_account.iban %></td>
-    </tr>
-    <tr>
-      <th>Balance</th>
-      <td><%= format_currency current_account.balance %></td>
-    </tr>
-    <tr>
-      <th>Overdraft</th>
-      <td><%= format_currency current_account.overdraft %></td>
-    </tr>
-    <tr>
-      <th>Preauth amount</th>
-      <td><%= format_currency current_account.preauth_amount %></td>
-    </tr>
-    <tr>
-      <th>Balance available</th>
-      <td><%= format_currency current_account.balance_available %></td>
-    </tr>
-  </table>
 <% else %>
-  <p>Nothing to see</p>
+  <div class="p-5 text-center text-muted">
+    <i class="fa fa-minus-circle fa-4x mb-3"></i>
+    <p class="lead mb-1">You are not logged in</p>
+    <p>Use the button to start an authentication</p>
+    <%= link_to login_path, class: "btn btn-outline-secondary px-4" do %>
+      <i class="fa fa-sign-in"></i> Login
+    <% end %>
+  </div>
 <% end %>

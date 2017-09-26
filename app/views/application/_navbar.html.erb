@@ -1,0 +1,28 @@
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container">
+
+    <%= link_to root_path, class: "navbar-brand" do %>
+      <i class="fa fa-anchor fa-2x text-success align-middle"></i> Fidor API
+      <small class="text-muted">Demo</small>
+    <% end %>
+
+
+    <% if logged_in? %>
+      <span class="navbar-text">
+        <strong><%= current_customer.first_name %> <%= current_customer.last_name %></strong>
+        <%= link_to logout_path, class: "btn btn-outline-danger btn-sm ml-4" do %>
+          <i class="fa fa-sign-out"></i> Logout
+        <% end %>
+      </span>
+
+    <% else %>
+      <span class="navbar-text">
+        Hey Guest
+        <%= link_to login_path, class: "btn btn-outline-success btn-sm ml-4" do %>
+          <i class="fa fa-sign-in"></i> Login
+        <% end %>
+      </span>
+    <% end %>
+
+  </div>
+</nav>

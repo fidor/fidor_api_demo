@@ -1,0 +1,27 @@
+<div class="card">
+  <div class="card-body">
+    <i class="fa fa-bank fa-3x float-right"></i>
+    <h4 class="card-title">Account</h4>
+    <h6 class="card-subtitle mb-2 text-muted">Details</h6>
+    <hr />
+    <dl class="row mb-0">
+      <dt class="col-sm-5">IBAN</dt>
+      <dd class="col-sm-7"><%= current_account.iban %></dd>
+
+      <dt class="col-sm-5">Account number</dt>
+      <dd class="col-sm-7"><%= current_account.account_number %></dd>
+
+      <dt class="col-sm-5">Balance</dt>
+      <dd class="col-sm-7"><%= format_currency current_account.balance %></dd>
+
+      <dt class="col-sm-5">Overdraft</dt>
+      <dd class="col-sm-7"><%= format_currency current_account.overdraft %></dd>
+
+      <dt class="col-sm-5">Preauth amount</dt>
+      <dd class="col-sm-7"><%= format_currency current_account.preauth_amount %></dd>
+
+      <dt class="col-sm-5">Balance available</dt>
+      <dd class="col-sm-7"><%= format_currency current_account.balance_available %></dd>
+    </dl>
+  </div>
+</div>

@@ -16,9 +16,12 @@ module ErrorMessagesHelper
     options[:message] ||= I18n.t("errors.template.body")
     messages = objects.compact.flat_map { |o| o.errors.full_messages }
     unless messages.empty?
-      content_tag(:div, class: "alert alert-danger alert-form") do
+      content_tag(:div, class: "alert alert-danger alert-dismissible alert-form ") do
         list_items = messages.map { |msg| content_tag(:li, msg) }
-        content_tag(:a, "&times;".html_safe, href: "#", class: "close", 'data-dismiss': "alert") + content_tag(:h4, options[:header_message], class: "alert-heading") + content_tag(:p, options[:message]) + content_tag(:ul, list_items.join.html_safe)
+        content_tag(:a, "&times;".html_safe, href: "#", class: "close", 'data-dismiss': "alert") +
+        content_tag(:h4, options[:header_message], class: "h5 mt-1") +
+        content_tag(:p, options[:message], class: "mb-0") +
+        content_tag(:ul, list_items.join.html_safe, class: "mb-0")
       end
     end
   end

@@ -1,28 +1,41 @@
-<h2>Transactions</h2>
+<div class="row justify-content-center">
+  <div class="col-12 col-md-9 col-lg-7 col-xl-6">
 
-<%= render "pagination" %>
+    <table class="table table-striped">
+      <colgroup>
+        <col width="25%">
+        <col width="45%">
+        <col width="30%">
+      </colgroup>
+      <tr>
+        <th>
+          Booking Date<br />
+          <small>Value Date</small>
+        </th>
+        <th>
+          Subject<br />
+          <small>Type</small>
+        </th>
+        <th class="text-right">Amount</th>
+      </tr>
+      <% @transactions.each do |t| %>
+        <tr>
+          <td>
+            <%= l t.booking_date.to_date rescue "-" %><br />
+            <small class="text-muted"><%= l t.value_date.to_date rescue "-" %></small>
+          </td>
+          <td>
+            <%= t.subject %><br />
+            <small class="text-muted"><%= t.transaction_type %></small>
+          </td>
+          <td class="align-middle text-right"><%= format_currency t.amount %></td>
+        </tr>
+      <% end %>
+    </table>
 
-<table class="table table-striped">
-  <colgroup>
-    <col width="120">
-    <col width="120">
-    <col width="200">
-    <col>
-  </colgroup>
-  <tr>
-    <th>Booking Date</th>
-    <th>Value Date</th>
-    <th>Amount</th>
-    <th>Subject</th>
-  </tr>
-  <% @transactions.each do |t| %>
-  <tr>
-    <td><%= l t.booking_date.to_date rescue "-" %></td>
-    <td><%= l t.value_date.to_date rescue "-" %></td>
-    <td class="text-right"><%= format_currency t.amount %></td>
-    <td><%= t.subject %></td>
-  </tr>
-  <% end %>
-</table>
+    <div class="my-5">
+      <%= paginate @transactions %>
+    </div>
 
-<%= render "pagination" %>
+  </div>
+</div>

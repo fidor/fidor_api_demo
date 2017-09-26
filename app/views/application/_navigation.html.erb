@@ -1,0 +1,13 @@
+<ul class="nav nav-pills justify-content-center my-4">
+  <%= content_tag :li, class: "nav-item" do %>
+    <%= link_to "Details", root_path, class: "nav-link #{is_active?(root_path)}" %></li>
+  <% end %>
+
+  <%= content_tag :li, class: "nav-item" do %>
+    <%= link_to "Transactions", transactions_path, class: "nav-link #{is_active?(transactions_path)}" %></li>
+  <% end %>
+
+  <%= content_tag :li, class: "nav-item" do %>
+    <%= link_to "Internal Transfer", new_internal_transfer_path, class: "nav-link #{controller?("internal_transfers") ? "active" : nil}" %></li>
+  <% end %>
+</ul>

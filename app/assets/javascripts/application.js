@@ -15,7 +15,8 @@
 //= require_tree .
 
 //= require jquery
-//= require bootstrap-sprockets
+//= require popper
+//= require bootstrap
 //= require vanilla-masker
 
 $(document).on("turbolinks:load", function() {

@@ -3,6 +3,8 @@ class Setup::BaseController < ApplicationController
 
   before_action :require_incomplete_setup
 
+  layout "setup"
+
   def index
   end
 

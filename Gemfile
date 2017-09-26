@@ -57,7 +57,7 @@ gem 'fidor_api'
 gem 'faraday-detailed_logger'
 
 gem 'jquery-rails'
-gem 'bootstrap-sass'
+gem 'bootstrap', '~> 4.0.0.beta'
 gem 'kaminari'
 gem 'rails-i18n'
 gem 'simple_form'

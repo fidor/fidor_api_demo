@@ -1,4 +1,4 @@
 class Setup::ConfigsController < Setup::BaseController
-  def index
+  def show
   end
 end
