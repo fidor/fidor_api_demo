@@ -8,20 +8,24 @@
 
 
     <% if logged_in? %>
-      <span class="navbar-text">
+      <span class="navbar-text ml-auto">
         <strong><%= current_customer.first_name %> <%= current_customer.last_name %></strong>
+      </span>
+      <form class="form-inline">
         <%= link_to logout_path, class: "btn btn-outline-danger btn-sm ml-4" do %>
           <i class="fa fa-sign-out"></i> Logout
         <% end %>
-      </span>
+      </form>
 
     <% else %>
-      <span class="navbar-text">
+      <span class="navbar-text ml-auto">
         Hey Guest
+      </span>
+      <form class="form-inline">
         <%= link_to login_path, class: "btn btn-outline-success btn-sm ml-4" do %>
           <i class="fa fa-sign-in"></i> Login
         <% end %>
-      </span>
+      </form>
     <% end %>
 
   </div>
