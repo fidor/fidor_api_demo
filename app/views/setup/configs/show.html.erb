@@ -30,8 +30,6 @@
   </thead>
   <tbody>
     <% EnvConfig::REQUIRED_KEYS.each do |key| %>
-      <% danger_class = EnvConfig.present?(key) ? nil : "bg-danger" %>
-
       <tr>
         <td class="text-center">
           <% if EnvConfig.present?(key) %>
@@ -40,12 +38,12 @@
             <i class="fa fa-times text-danger"></i>
           <% end %>
         </td>
-        <%= content_tag :td, class: danger_class do %>
+        <td>
           <code><%= key %></code>
-        <% end %>
-        <%= content_tag :td, class: danger_class do %>
+        </td%>
+        <td>
           <code><%= EnvConfig.get(key) %></code>
-        <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
