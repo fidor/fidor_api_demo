@@ -1,0 +1,14 @@
+branches:
+  only:
+    - master
+
+language: ruby
+
+rvm:
+  - "2.5.0"
+
+before_install:
+  - gem update --system
+
+script:
+  - bundle exec rspec
