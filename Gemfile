@@ -60,9 +60,6 @@ end
 # gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # custom
-
-ruby '2.5.1' # tell heroku, which ruby version we want
-
 gem 'fidor_api'
 gem 'faraday-detailed_logger'
 
