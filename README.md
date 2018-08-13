@@ -6,7 +6,7 @@ This [Rails](http://rubyonrails.org) application demonstrates the capabilities o
 
 ### Preview
 
-You can always access the latest version of this appliation at [fidor-api-demo.herokuapp.com](https://fidor-api-demo.herokuapp.com) to see it action. This deployment is connected to the Fidor Sandbox (`aps.fidor.de`). Use the following credentials to login:
+You can always access the latest version of this appliation at [fidor-api-demo.herokuapp.com](https://fidor-api-demo.herokuapp.com) to see it action. This deployment is connected to the Fidor Sandbox (`api.sandbox.fidor.com`). Use the following credentials to login:
 
 ```
 Username: api_tester@example.com
@@ -88,8 +88,8 @@ FIDOR_API_CALLBACK=http://localhost:4000/auth/callback
 FIDOR_API_CLIENT_ID=1234567890
 FIDOR_API_CLIENT_SECRET=xxxxxxxxxxxxxxxxxxxxxxx
 FIDOR_API_LOGGING=true
-FIDOR_API_URL=https://aps.fidor.de
-FIDOR_OAUTH_URL=https://aps.fidor.de
+FIDOR_API_URL=https://api.sandbox.fidor.com
+FIDOR_OAUTH_URL=https://apm.sandbox.fidor.com
 ```
 
 The same file can be used when executing a docker-container with the option `--env-file` but it's also possible to pass the variables inline of the `docker run` command:
@@ -100,8 +100,8 @@ $ docker run -it --rm \
     -e FIDOR_API_CLIENT_ID=1234567890 \
     -e FIDOR_API_CLIENT_SECRET=xxxxxxxxxxxxxxxxxxxxxxx \
     -e FIDOR_API_LOGGING=true \
-    -e FIDOR_API_URL=https://aps.fidor.de \
-    -e FIDOR_OAUTH_URL=https://aps.fidor.de \
+    -e FIDOR_API_URL=https://api.sandbox.fidor.com \
+    -e FIDOR_OAUTH_URL=https://apm.sandbox.fidor.com \
     -p 4000:8080 \
     -d fidor_api_demo
 ```
