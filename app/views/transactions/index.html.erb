@@ -1,6 +1,5 @@
 <div class="row justify-content-center">
   <div class="col-12 col-md-9 col-lg-7 col-xl-6">
-
     <table class="table table-striped">
       <colgroup>
         <col width="25%">
@@ -25,7 +24,7 @@
             <small class="text-muted"><%= l t.value_date.to_date rescue "-" %></small>
           </td>
           <td>
-            <%= t.subject %><br />
+            <%= link_to t.subject, t %><br />
             <small class="text-muted"><%= t.transaction_type %></small>
           </td>
           <td class="align-middle text-right"><%= format_currency t.amount %></td>

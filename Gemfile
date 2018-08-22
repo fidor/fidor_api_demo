@@ -60,8 +60,7 @@ end
 # gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # custom
-gem 'fidor_api'
-gem 'faraday-detailed_logger'
+gem 'fidor_api', '~> 2.0.0'
 
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.1.0'

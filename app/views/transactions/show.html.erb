@@ -1,0 +1,25 @@
+<div class="row justify-content-center">
+  <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+    <table class="table table-striped">
+      <colgroup>
+        <col width="25%">
+        <col width="45%">
+      </colgroup>
+      <% @transaction.attributes.each do |key, value| %>
+        <tr>
+          <th><%= key.to_s.humanize %></th>
+          <td>
+            <%=
+              case value
+              when Hash
+                "<pre>#{value.to_yaml}</pre>".html_safe
+              else
+                value.presence || '-'
+              end
+            %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

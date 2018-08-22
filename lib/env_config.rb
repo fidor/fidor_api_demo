@@ -5,9 +5,6 @@ module EnvConfig
     FIDOR_API_CALLBACK
     FIDOR_API_CLIENT_ID
     FIDOR_API_CLIENT_SECRET
-    FIDOR_API_LOGGING
-    FIDOR_API_URL
-    FIDOR_OAUTH_URL
   ).freeze
 
   UNDEFINED_VALUES = ["changeme", "undefined", "", nil].freeze

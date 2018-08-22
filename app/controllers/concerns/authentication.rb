@@ -2,25 +2,20 @@ module Authentication
   extend ActiveSupport::Concern
 
   included do
-    before_action :set_access_token   # never ever skip this action
-    after_action  :clear_access_token # never ever skip this action
-
     helper_method :logged_in?
     helper_method :current_account
     helper_method :current_customer
     helper_method :current_user
   end
 
+  def self.included(base)
+    base.rescue_from Faraday::ClientError do |e|
+      raise e if e.response[:status] != 401
+      redirect_to logout_path
+    end
+  end
+
   private
-
-  def set_access_token
-    clear_access_token
-    FidorApi::Connectivity.access_token = api_token&.access_token
-  end
-
-  def clear_access_token
-    FidorApi::Connectivity.access_token = nil
-  end
 
   def require_valid_session
     unless logged_in?
@@ -30,30 +25,31 @@ module Authentication
   end
 
   def logged_in?
-    api_token&.valid?
-  end
-
-  def api_token
-    @api_token ||= begin
-      return unless session[:api_token].present?
-      token = FidorApi::Token.new session[:api_token]
-      token = FidorApi::Auth.refresh_token(token) unless token.valid?
-      token
-    end
+    session[:fidor_api_token].present?
   end
 
   def current_account
-    return unless logged_in?
-    @current_account ||= FidorApi::Account.first
+    @current_account ||= fidor_api.accounts.first
   end
 
   def current_customer
-    return unless current_account
-    @current_customer ||= current_account.customers.first
+    @current_customer ||= fidor_api.customers.first
   end
 
   def current_user
-    return unless logged_in?
-    @current_user ||= FidorApi::User.current
+    @current_user ||= fidor_api.user
+  end
+
+  private
+
+  def fidor_api
+    client = FidorApi::Client.new do |config|
+      config.client_id     = Rails.application.config.x.fidor_api.client_id
+      config.client_secret = Rails.application.config.x.fidor_api.client_secret
+      config.logger        = TaggedLogger.new("FidorApi", Rails.logger)
+    end
+
+    client.token = FidorApi::Token.new(session[:fidor_api_token]) if logged_in?
+    client
   end
 end

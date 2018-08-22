@@ -2,8 +2,11 @@ class TransactionsController < ApplicationController
   before_action :require_valid_session
 
   def index
-    transactions = FidorApi::Transaction.all(pagination)
-    @transactions = transactions
+    @transactions = fidor_api.transactions(pagination)
+  end
+
+  def show
+    @transaction = fidor_api.transaction params[:id]
   end
 
   private
