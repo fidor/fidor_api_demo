@@ -20,13 +20,9 @@
       "description": "Whether the `fidor_api` gem should log all requests done against the Fidor API",
       "value": "changeme"
     },
-    "FIDOR_API_URL": {
-      "description": "The API endpoint which the `fidor_api` gem should use for regular requests",
-      "value": "changeme"
-    },
-    "FIDOR_OAUTH_URL": {
-      "description": "The API endpoint which the `fidor_api` gem should use for oAuth requests",
-      "value": "changeme"
+    "FIDOR_API_ENVIRONMENT": {
+      "description": "The API environment which the `fidor_api` gem should use",
+      "value": "FidorApi::Environment::FidorDE::Sandbox"
     },
     "RAILS_ENV": {
       "description": "Runs the rails application in production mode",
