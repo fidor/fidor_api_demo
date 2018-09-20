@@ -44,6 +44,7 @@ module Authentication
 
   def fidor_api
     client = FidorApi::Client.new do |config|
+      config.environment   = Rails.application.config.x.fidor_api.environment
       config.client_id     = Rails.application.config.x.fidor_api.client_id
       config.client_secret = Rails.application.config.x.fidor_api.client_secret
       config.logger        = TaggedLogger.new("FidorApi", Rails.logger)
