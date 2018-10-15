@@ -88,8 +88,7 @@ FIDOR_API_CALLBACK=http://localhost:4000/auth/callback
 FIDOR_API_CLIENT_ID=1234567890
 FIDOR_API_CLIENT_SECRET=xxxxxxxxxxxxxxxxxxxxxxx
 FIDOR_API_LOGGING=true
-FIDOR_API_URL=https://api.sandbox.fidor.com
-FIDOR_OAUTH_URL=https://apm.sandbox.fidor.com
+FIDOR_API_ENVIRONMENT=FidorApi::Environment::FidorDE::Sandbox
 ```
 
 The same file can be used when executing a docker-container with the option `--env-file` but it's also possible to pass the variables inline of the `docker run` command:
@@ -100,8 +99,7 @@ $ docker run -it --rm \
     -e FIDOR_API_CLIENT_ID=1234567890 \
     -e FIDOR_API_CLIENT_SECRET=xxxxxxxxxxxxxxxxxxxxxxx \
     -e FIDOR_API_LOGGING=true \
-    -e FIDOR_API_URL=https://api.sandbox.fidor.com \
-    -e FIDOR_OAUTH_URL=https://apm.sandbox.fidor.com \
+    -e FIDOR_API_ENVIRONMENT=FidorApi::Environment::FidorDE::Sandbox \
     -p 4000:8080 \
     -d fidor_api_demo
 ```
