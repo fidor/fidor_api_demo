@@ -93,7 +93,7 @@ GEM
     faraday_middleware (0.12.2)
       faraday (>= 0.7.4, < 1.0)
     ffi (1.9.25)
-    fidor_api (2.0.4)
+    fidor_api (2.0.5)
       activemodel (~> 5.0)
       faraday (~> 0.15)
       faraday_middleware (~> 0.12)
