@@ -63,7 +63,7 @@ end
 gem 'fidor_api', '~> 2.1.0'
 
 gem 'jquery-rails'
-gem 'bootstrap', '~> 4.3.0'
+gem 'bootstrap', '~> 4.3.1'
 gem 'kaminari'
 gem 'rails-i18n'
 gem 'simple_form'
