@@ -4,15 +4,6 @@ This [Rails](http://rubyonrails.org) application demonstrates the capabilities o
 
 ## Production Setup & Deployment
 
-### Preview
-
-You can always access the latest version of this appliation at [fidor-api-demo.herokuapp.com](https://fidor-api-demo.herokuapp.com) to see it action. This deployment is connected to the Fidor Sandbox (`api.sandbox.fidor.com`). Use the following credentials to login:
-
-```
-Username: api_tester@example.com
-Password: password
-```
-
 If you want to deploy your own version of this application just follow this instructions:
 
 > **Requirement**: You need to have registered a Application in the Fidor App Manager.<br>
